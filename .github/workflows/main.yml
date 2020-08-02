@@ -2,8 +2,6 @@ name: Live stack
 
 on:
   push:
-    # branches:
-    #   - main
     tags:
       - 'v*'
 
