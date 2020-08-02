@@ -17,11 +17,11 @@ The plugin has to work around a kink in the Lightroom plugin API however, namely
 ## Suggested workflow
 
 - Import photos from phone with Photos
-- Do a brief review, deleting obvious bad takes
 - For Live photos where you want to switch the key frame, use Photos to edit the key frame, then export only these modified photos as TIFF
 - Export all photos as originals from Photos
-- Import all the photos into Lightroom, excluding the videos
-- Run the plugin to import and stack the videos
+- Import all the photos+videos into Lightroom
+- Delete all the videos, preserving the files on disk
+- Run the plugin to re-import and stack the videos
     - If you edited the key frame of any photo, manually stack this with the original photo and video.
 - Continue your regular Lightroom workflow
 
