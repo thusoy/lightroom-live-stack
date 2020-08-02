@@ -3,6 +3,11 @@
 Simple Lightroom plugin that helps stack Apple's Live videos with the photos.
 
 
+## Installation
+
+Find the [latest release](https://github.com/thusoy/lightroom-live-stack/releases), download the `LiveStack.zip` file and unpack it. Open Lightroom, click File > Plug-in Manager, then add the `LiveStack.lrplugin` you unpacked. Use from the Library > Plug-in Extras menu.
+
+
 ## Background
 
 Apple's Live photos are photos that also have an attached 3 second video file. This can be used to get temporal context to a photo, and particularly for photos of groups, kids or animals can assist in finding a frame where all the subjects looks at the camera, or are in the frame altogether.
