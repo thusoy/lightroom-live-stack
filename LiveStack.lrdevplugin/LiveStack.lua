@@ -8,7 +8,7 @@ local logger = LrLogger('LiveStack')
 logger:enable('logfile')
 LSMenuItem = {}
 
-function LSMenuItem.sortImages()
+function LSMenuItem.stackLivePhotos()
     catalog:withWriteAccessDo('Stack Live photos', function (context)
         local selectedPhotos = catalog.targetPhotos
         for _, photo in ipairs(selectedPhotos) do
@@ -34,4 +34,4 @@ function LSMenuItem.sortImages()
     end)
 end
 
-LrTasks.startAsyncTask(LSMenuItem.sortImages)
+LrTasks.startAsyncTask(LSMenuItem.stackLivePhotos)
