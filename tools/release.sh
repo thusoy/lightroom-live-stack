@@ -33,7 +33,7 @@ sanity_check () {
         exit 1
     fi
 
-    grep UNRELEASED CHANGELOG.md \
+    grep -q UNRELEASED CHANGELOG.md \
         || (echo >&2 'No changes noted in CHANGELOG'; exit 1)
 }
 
