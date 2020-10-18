@@ -3,7 +3,7 @@ Changelog
 
 Notable changes to the project will be added here.
 
-# UNRELEASED
+# 1.1.0 - 2020-10-18
 
 ## Added
 - Progressbar for both syncing live stacks and syncing stack picks.
