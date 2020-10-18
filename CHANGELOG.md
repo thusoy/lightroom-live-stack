@@ -3,7 +3,7 @@ Changelog
 
 Notable changes to the project will be added here.
 
-# Unreleased
+# UNRELEASED
 
 ## Fixed
 - Incorrect version was shown in the Lightroom Plug-in Manager.
