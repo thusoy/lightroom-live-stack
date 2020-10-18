@@ -1,6 +1,7 @@
 local LrApplication = import 'LrApplication'
 local LrLogger = import 'LrLogger'
 local LrPathUtils = import 'LrPathUtils'
+local LrProgressScope = import 'LrProgressScope'
 local LrTasks = import 'LrTasks'
 
 local catalog = LrApplication.activeCatalog()
@@ -11,6 +12,10 @@ LSMenuItem = {}
 function LSMenuItem.stackLivePhotos()
     catalog:withWriteAccessDo('Stack Live photos', function (context)
         local selectedPhotos = catalog.targetPhotos
+        local progressScope = LrProgressScope({
+            title="Stacking live photos",
+        })
+        local photosCompleted = 0
         for _, photo in ipairs(selectedPhotos) do
             local fileType = photo:getFormattedMetadata('fileType')
             if fileType == 'HEIC' then
@@ -30,7 +35,10 @@ function LSMenuItem.stackLivePhotos()
             else
                 logger:debugf('Skipping non-heic file %s', photo:getFormattedMetadata('fileName'))
             end
+            photosCompleted = photosCompleted + 1
+            progressScope:setPortionComplete(photosCompleted, #selectedPhotos)
         end
+        progressScope:done()
     end)
 end
 

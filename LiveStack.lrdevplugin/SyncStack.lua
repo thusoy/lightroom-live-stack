@@ -1,5 +1,6 @@
 local LrApplication = import 'LrApplication'
 local LrLogger = import 'LrLogger'
+local LrProgressScope = import 'LrProgressScope'
 local LrTasks = import 'LrTasks'
 
 local catalog = LrApplication.activeCatalog()
@@ -10,6 +11,10 @@ LSMenuItem = {}
 function LSMenuItem.syncStackPicks()
     catalog:withWriteAccessDo('Sync picks to stack', function (context)
         local selectedPhotos = catalog.targetPhotos
+        local progressScope = LrProgressScope({
+            title="Syncing pick status to stacks",
+        })
+        local photosCompleted = 0
         for _, photo in ipairs(selectedPhotos) do
             if photo:getRawMetadata('isInStackInFolder') then
                 if photo:getRawMetadata('stackPositionInFolder') == 1 then
@@ -22,7 +27,10 @@ function LSMenuItem.syncStackPicks()
                     end
                 end
             end
+            photosCompleted = photosCompleted + 1
+            progressScope:setPortionComplete(photosCompleted, #selectedPhotos)
         end
+        progressScope:done()
     end)
 end
 
