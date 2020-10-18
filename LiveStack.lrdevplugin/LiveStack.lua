@@ -18,7 +18,8 @@ function LSMenuItem.stackLivePhotos()
         local photosCompleted = 0
         for _, photo in ipairs(selectedPhotos) do
             local fileType = photo:getFormattedMetadata('fileType')
-            if fileType == 'HEIC' then
+            -- Restrict the types we check for to speed things up
+            if fileType == 'HEIC' or fileType == 'JPEG' or fileType == 'TIFF' then
                 if not photo:getRawMetadata('isInStackInFolder') then
                     local videoPath = LrPathUtils.replaceExtension(photo:getRawMetadata('path'), 'mov')
                     local status, err = LrTasks.pcall(function ()

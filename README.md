@@ -38,7 +38,7 @@ To help delete both photo and video, there's also a helper to sync pick status t
 
 ## Noteworthy
 
-The plugin currently assumes you capture the Live photos with the new HEIC format and not JPG.
+Only HEIC, JPEG and TIFF files will be checked for a corresponding video file.
 
 
 ## License
