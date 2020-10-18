@@ -71,7 +71,7 @@ patch_plugin_info() {
 }
 
 git_commit_and_tag() {
-    git add CHANGELOG.md
+    git add CHANGELOG.md LiveStack.lrdevplugin/Info.lua
     git commit -m "Release $version"
     git tag -m "Release v$version" "v$version"
 }

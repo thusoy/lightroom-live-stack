@@ -3,6 +3,12 @@ Changelog
 
 Notable changes to the project will be added here.
 
+# UNRELEASED
+
+## Fixed
+- Actually fix the issue from 1.1.1.
+
+
 # 1.1.1 - 2020-10-18
 
 ## Fixed
