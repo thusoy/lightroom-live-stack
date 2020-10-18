@@ -35,6 +35,17 @@ sanity_check () {
 
     grep -q UNRELEASED CHANGELOG.md \
         || (echo >&2 'No changes noted in CHANGELOG'; exit 1)
+
+    set +e
+    git diff-index --quiet --cached HEAD
+    local has_staged_changes=$?
+    git diff-files --quiet
+    local has_unstaged_changes=$?
+    set -e
+    if [ $has_staged_changes -ne 0 -o $has_unstaged_changes -ne 0 ]; then
+        echo >&2 "You have a dirty index, please stash or commit your changes before releasing"
+        exit 1
+    fi
 }
 
 patch_changelog() {
