@@ -33,12 +33,17 @@ The plugin has to work around a kink in the Lightroom plugin API however, namely
 
 ## Syncing pick status to stack
 
-To help delete both photo and video, there's also a helper to sync pick status through stacked photos. When you're reviewing your shots you'll likely only look at the top photo in a stack to decide whether it's a keeper or not. If you mark it as rejected though, that's not propagated to the other elements of the stack, thus when you delete rejected photos you won't delete the stacked videos. To fix this, before you delete the rejected photos, click Library > Plug-in Extras > Sync picks to stack, this will set the pick status of all stacked items to the same as the item on top of the stack. Now you can delete rejected photos and also have the videos deleted.
+To help delete both photo and video after review, there's also a helper to sync pick status through stacked photos. When you're reviewing your shots you'll likely only look at the top photo in a stack to decide whether it's a keeper or not. If you mark it as rejected though, that's not propagated to the other elements of the stack, thus when you delete rejected photos you won't delete the stacked videos. To fix this, before you delete the rejected photos, click Library > Plug-in Extras > Sync picks to stack, this will set the pick status of all stacked items to the same as the item on top of the stack. Now you can delete rejected photos and also have the videos deleted.
 
 
 ## Noteworthy
 
 Only HEIC, JPEG and TIFF files will be checked for a corresponding video file.
+
+
+## Development
+
+Create a test catalog with some test photos to not mess with your real catalogs. Logs are written to `~/Documents/LrClassicLogs/{Live,Sync}Stack.log`.
 
 
 ## License
