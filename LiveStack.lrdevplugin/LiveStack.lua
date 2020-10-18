@@ -33,8 +33,6 @@ function LSMenuItem.stackLivePhotos()
                 else
                     logger:debugf("Skipping already stacked '%s'", photo:getFormattedMetadata('fileName'))
                 end
-            else
-                logger:debugf('Skipping non-heic file %s', photo:getFormattedMetadata('fileName'))
             end
             photosCompleted = photosCompleted + 1
             progressScope:setPortionComplete(photosCompleted, #selectedPhotos)
