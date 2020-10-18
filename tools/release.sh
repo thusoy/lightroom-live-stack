@@ -16,6 +16,7 @@ version=$1
 main () {
     sanity_check
     patch_changelog
+    patch_plugin_info
     git_commit_and_tag
     git_push
 }
@@ -53,6 +54,20 @@ patch_changelog() {
     sed "s/UNRELEASED/$version - $(date -u +'%Y-%m-%d')/" CHANGELOG.md \
         > tmp-changelog
     mv tmp-changelog CHANGELOG.md
+}
+
+patch_plugin_info() {
+    major=$(echo "$version" | cut -d . -f 1)
+    minor=$(echo "$version" | cut -d . -f 2)
+    patch=$(echo "$version" | cut -d . -f 3)
+    # Doesn't use sed -i since it's not portable
+    sed -E \
+        -e "s/major = [0-9]+/major = $major/" \
+        -e "s/minor = [0-9]+/minor = $minor/" \
+        -e "s/revision = [0-9]+/revision = $patch/" \
+        LiveStack.lrdevplugin/Info.lua \
+        > tmp-info
+    mv tmp-info LiveStack.lrdevplugin/Info.lua
 }
 
 git_commit_and_tag() {

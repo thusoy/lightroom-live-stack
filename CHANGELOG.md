@@ -3,6 +3,12 @@ Changelog
 
 Notable changes to the project will be added here.
 
+# Unreleased
+
+## Fixed
+- Incorrect version was shown in the Lightroom Plug-in Manager.
+
+
 # 1.1.0 - 2020-10-18
 
 ## Added
